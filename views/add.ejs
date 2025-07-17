@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+
+  <section class="hero min-h-screen" style="background-image: url('https://images.unsplash.com/photo-1682687220795-796d3f6f7000?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center;">
+    <div class="hero-overlay bg-opacity-60"></div>
+
+    <div class="hero-content text-neutral-content flex flex-col items-center w-full">
+      
+      <div class="text-center mb-8">
+        <h1 class="text-5xl font-bold">Add a New Memory</h1>
+        <p class="py-6">If you have visited Saudi Arabia and would like to add a memory, then feel free to do so!</p>
+      </div>
+
+      <div class="w-full max-w-xl rounded-lg shadow space-y-4 ">
+        
+        <form action="/memories/add" method="POST" class="space-y-4">
+          <input type="text" name="name" placeholder="Location Name"
+            class="input bg-transparent border-white text-white placeholder-white w-full" required />
+
+          <input type="text" name="address" placeholder="Address"
+            class="input bg-transparent border-white text-white placeholder-white w-full" required />
+
+          <select name="category" class="select bg-transparent border-white w-full" required>
+            <option disabled selected>Select a Category</option>
+            <option class="text-black">Religious Site</option>
+            <option class="text-black">Historical Site</option>
+            <option class="text-black">Nature</option>
+          </select>
+
+          <textarea name="comments" placeholder="What makes this a memorable place?"
+            class="textarea bg-transparent border-white text-white placeholder-white w-full" required></textarea>
+
+          <input type="url" name="image" placeholder="Image URL"
+            class="input bg-transparent border-white text-white placeholder-white w-full" required />
+          
+          <div class="flex justify-end gap-x-4">
+            <a href="/" class="btn btn-outline text-white border-white">← Back to Home</a>
+            <button type="submit"
+              class="btn bg-transparent border-white text-white hover:bg-white hover:text-black">Add Memory</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
