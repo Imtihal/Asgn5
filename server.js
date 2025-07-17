@@ -6,8 +6,10 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");      //ejs
 app.use(express.urlencoded({ extended: true })); //forms
 require("dotenv").config()   
-
+require('pg');
 app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/public'));
+
 
 // +++ Database connection code
 // +++ TODO: Remember to add your Neon.tech connection variables to the .env file!!
@@ -63,9 +65,11 @@ async function startServer() {
         console.log("SUCCESS connecting to database")
         console.log("STARTING Express web server")        
         
+        if (process.env.NODE_ENV !== "production") {
         app.listen(HTTP_PORT, () => {     
-            console.log(`server listening on: http://localhost:${HTTP_PORT}`) 
-        })    
+            console.log(`server listening on: http://localhost:${HTTP_PORT}`);
+            });
+        }
     }    
     catch (err) {        
         console.log("ERROR: connecting to database")        
@@ -76,5 +80,4 @@ async function startServer() {
 
 startServer()
 
-
-
+module.exports = app;
